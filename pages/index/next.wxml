@@ -1,0 +1,23 @@
+<view class="title">
+    <text>1.上传</text><text>2.上传</text>
+</view>
+
+<form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section">
+      <view class="info">真实姓名</view>
+      <input name="name" placeholder="please input here" />
+    </view>
+    <view class="section">
+      <view class="info">手机号码</view>
+      <input name="phone" placeholder="please input here" />
+    </view>
+    <view class="section">
+      <view class="info">身份证号码</view>
+      <input name="idcard" placeholder="please input here" />
+    </view>
+ 
+    <view class="btn-area">
+      <button form-type="submit">提交</button>
+      <button formType="reset">重置</button>
+    </view>
+</form>

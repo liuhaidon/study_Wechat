@@ -1,0 +1,4 @@
+<view class='container'>
+  <!-- <button open-type="getUserInfo">授权用户信息</button> -->
+  <image src='../../imgs/logo.png' class='ns_logo'></image>
+</view>

@@ -1,0 +1,9 @@
+page {
+  background-attachment: fixed;
+  background: #fff;
+}
+.ns_logo{
+  margin-top: 336rpx;
+  width: 408rpx;
+  height: 334rpx;
+}
