@@ -1,0 +1,8 @@
+app.json文件：
+    // 下拉背景字体、loading 图的样式，仅支持 dark/light
+    // 航栏背景颜色
+    // 导航栏标题文字内容
+    // 导航栏标题颜色,仅支持 black/white
+    // 窗口的背景色
+    // 是否开启下拉刷新
+    // https: //blog.csdn.net/languobeibei/article/details/79500316

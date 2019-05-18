@@ -7,7 +7,7 @@
 // var host = "https://yearbook.nslib.cn";
 var host = "http://127.0.0.1:8080";
 // var appId ='wxc5ba9fc4bfc7faea'
-var appId = 'wx95a07011c23e4b00';
+var appId = 'wx66d353c324cca4dc';
 var baseUrl = `${host}/certification/`;
 var config = {
 

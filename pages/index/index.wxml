@@ -1,28 +1,44 @@
-<!-- <view class="section section_gap" style="width: 200px; height: 100px; background-color: #eeeeee;">
-      <text>1.上传  >  2.核实  >  3.完成</text>
-</view> -->
-
 <view class="section section_gap">
       <view class="section__title">上传身份证人像面</view>
-      <view class="upload" catchtap='uploadImg' data-type="front">
+      <view class="upload" catchtap='getPhoto' data-type="front">
         <image style="width: 200px; height: 100px; background-color: #eeeeee;" mode="" src="{{idCardUrlFront}}"></image>
-        <!-- <view class="size">开始上传</view> -->
       </view>
 </view>
 
 <view class="section section_gap">
       <view class="section__title">上传身份证国徽面</view>
-      <view class="upload" catchtap='uploadImg' data-type="back">
+      <view class="upload" catchtap='getPhoto' data-type="back">
         <image style="width: 200px; height: 100px; background-color: #eeeeee;" mode="" src="{{idCardUrlBack}}"></image>
       </view>
 </view>
 
 <view class="section section_gap">
       <view class="section__title">本人手持身份证照片</view>
-      <view class="upload" catchtap='uploadImg' data-type="people">
+      <view class="upload" catchtap='getPhoto' data-type="people">
         <image style="width: 200px; height: 100px; background-color: #eeeeee;" mode="" src="{{idCardUrlpeople}}"></image>
       </view>
 </view>
 
+
+<block wx:if="{{idCardUrlFront=='' && idCardUrlBack==''}}">
+    <button class="submit_button" bindtap="submit_answer" data-idx="">下一步</button>
+</block>
+<block wx:else>
+    <button class="submit_button" bindtap="submit_answer" disabled='disabled'>下一步</button>
+</block>
 <!-- <button class="button" bindtap="check">检测</button> -->
-<button class="submit_button" data-id="{{idx}}"  bindtap="submit_answer">下一步</button>
+    
+
+<!-- <view>
+  <view class='idcard'>
+    <image class="idcard_front" catchtap='uploadImageFront' src="{{idCardUrlFront}}"></image>
+    <view class='idcard_front_desc'>扫描身份证人像面</view>
+  </view>
+
+  <view class='idcard'>
+   <image class="idcard_front" catchtap='uploadImageBack' src="{{idCardUrlBack}}"></image>
+    <view class='idcard_front_desc'>扫描身份证国徽面</view>
+  </view>
+
+  <view class="submit {{islogo?'logo_bg':'logo_disabled'}}" catchtap='submit'>下一步</view>
+</view> -->
