@@ -27,7 +27,13 @@
       },
       {
         "pagePath": "pages/index/index",
-        "text": "首页",
+        "text": "媒体",
+        "iconPath": "imgs/nsg.png",
+        "selectedIconPath": "imgs/nsg_click.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "个人中心",
         "iconPath": "imgs/nsg.png",
         "selectedIconPath": "imgs/nsg_click.png"
       }
