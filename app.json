@@ -1,9 +1,11 @@
 {
   "pages": [
+    "pages/login/login",
     "pages/index/index",
     "pages/logs/logs",
     "pages/index/next",
-    "pages/test/test"
+    "pages/test/test",
+    "pages/media/picture"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -26,14 +28,14 @@
         "selectedIconPath": "imgs/nsg_click.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/media/picture",
         "text": "媒体",
         "iconPath": "imgs/nsg.png",
         "selectedIconPath": "imgs/nsg_click.png"
       },
       {
         "pagePath": "pages/index/index",
-        "text": "个人中心",
+        "text": "我的",
         "iconPath": "imgs/nsg.png",
         "selectedIconPath": "imgs/nsg_click.png"
       }

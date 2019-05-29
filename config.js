@@ -5,7 +5,7 @@
 // 此处主机域名修改成腾讯云解决方案分配的域名
 // var host="https://www.brainking.xyz"
 // var host = "https://yearbook.nslib.cn";
-var host = "http://127.0.0.1:8080";
+var host = "http://127.0.0.1:3120";
 // var appId ='wxc5ba9fc4bfc7faea'
 var appId = 'wx66d353c324cca4dc';
 var baseUrl = `${host}/certification/`;

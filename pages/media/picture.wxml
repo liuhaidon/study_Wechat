@@ -1,0 +1,11 @@
+<scroll-view scroll-x="true" style="width: 100%;white-space:nowrap;">
+    <!-- tab -->
+    <view class="tab">
+        <view class="tab-nav" style='font-size:12px'>
+            <view class="content" wx:for="{{tabnav.tabitem}}" bindtap="setTab" data-tabindex="{{index}}" style="min-width:20%;max-width:20%;text-align:center;height: 80rpx;{{index>4?'border-bottom: 1rpx dotted #ddd;':''}}">{{item.text}}</view>
+            <view >
+                <view class="tab-line" style="width:{{100/tabnav.tabnum}}%;transform:translateX({{100*showtab}}%);"></view>
+            </view>
+        </view>
+    </view>
+</scroll-view>

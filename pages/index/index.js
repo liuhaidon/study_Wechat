@@ -11,14 +11,12 @@ Page({
   },
 
   onLoad: function (opt) {
-    console.log("============================")
     wx.showShareMenu({
       withShareTicket: true
     })
   },
 
   onShow() {
-    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
     console.log("data===>>", this.data)
   },
 

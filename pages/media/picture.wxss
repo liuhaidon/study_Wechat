@@ -1,0 +1,30 @@
+.tab{
+	display: flex;
+	flex-direction: column;
+}
+.tab-nav{
+	height: 80rpx;
+	background: #fff;
+	border-bottom: 0.5rpx dotted #ddd;
+	display: flex;
+	line-height: 79rpx;
+	position: relative;
+}
+.tab-nav .content{
+  /* color: #d3d3d3; */
+  color: #000;
+}
+
+.tab-line{
+	position: absolute;
+	left: 0;
+	bottom: -1rpx;
+	height: 4rpx;
+	background: #f7982a;
+	transition: all 0.3s;
+}
+.tab-content{
+	flex: 1;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
