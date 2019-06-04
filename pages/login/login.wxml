@@ -22,4 +22,7 @@
     <view class='fpwd' bindtap='findpwd'>
       <text>忘记密码</text>
     </view>
+    <view class='register' bindtap='register'>
+      <text>注册用户</text>
+    </view>
 </view>

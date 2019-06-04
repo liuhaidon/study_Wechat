@@ -1,0 +1,28 @@
+<!--pages/register/index.wxml-->
+<view class="box">		
+	<view class="tab1" hidden='{{next}}'>
+		<view class='step'>第一步 发送验证码到手机</view>
+		<input class="idText" maxlength="11" bindinput="phoneInput" type="text" id="phone" name="phone" placeholder="手机号" autocomplete="off" onkeyup="checkMobile($(this))"/>
+		<text class="tips">{{phoneTip}}</text>
+		<view class="keyCodeBox">
+			<input class="keyCode" bindinput="keyCodeInput"  type="text" id="code" name="code" placeholder="验证码"/>
+			<button class="sendBtn {{isChecked?'btnCode':''}}" bindtap='codeBtn' disabled="{{boolean}}" name="sendcode" id="sendcode">{{mailCode}}</button>
+		</view>
+		<text class="tips tips1">{{keyCodeTip}}</text>	
+		<view class='instruction'>注册代表您已同意<text>用户协议及隐私条款</text>，包括<text>Cookie使用条款</text></view>
+		<button class="Register" bindtap='next'>下一步</button>
+	</view>
+	<view class="tab2" hidden='{{!next}}' >
+		<view class='backBox' bindtap='back'>
+			<image class='back' src='../../img/reback.png'></image>
+		</view>
+		<view class='step stepSecond'>第二步 设置账号信息</view>
+		<input class="idText" bindinput="userNameInput" type="text" id="username" name="username" placeholder="昵称"/>
+		<text class="tips">{{userNameTip}}</text>
+		<input class="password" bindinput="userPasswordInput" type="password" id="password" name="password" placeholder="密码"/>
+		<image class="typeChange" src="../../../../Public/Moter/image/eye.png" alt="眼睛" id="eye"></image> 
+		<text class="tips passTip">{{userPasswordTip}}</text>				 
+		<button class="login" bindtap="oLogin">登录</button>
+	</view> 
+	<view>{{info}}</view>
+</view>

@@ -25,66 +25,42 @@ var LoginError = (function () {
 var getWxLoginResult = function getLoginCode(callback) {
     wx.login({
         success: function (loginResult) {
-            console.log("loginResult==>", loginResult)
-            wx.getUserInfo({
-                success: function (userResult) {
-                  console.log("userResult==>", userResult)
+          console.log("loginResult==>", loginResult)
+          wx.getSetting({
+          // wx.openSetting({
+            success: (res) => {
+              if (res.authSetting['scope.userInfo']) {
+                wx.getUserInfo({
+                  success: function (userResult) {
+                    console.log("userResult==>", userResult)
                     callback(null, {
-                        code: loginResult.code,
-                        encryptedData: userResult.encryptedData,
-                        iv: userResult.iv,
-                        userInfo: userResult.userInfo,
+                      code: loginResult.code,
+                      encryptedData: userResult.encryptedData,
+                      iv: userResult.iv,
+                      userInfo: userResult.userInfo,
                     });
-                },
-            //     fail: function (userError) {
-            //       //   wx.redirectTo({
-            //       //         url: '/pages/test/test',
-            //       //   })
-
-            //       // jacksplwxy：用户拒绝授权后，打开设置，让用户进行授权
-            //       wx.showModal({
-            //         title: '登录失败!',
-            //         content: '请选择允许获取您的公开信息',
-            //         success: (res) => {
-            //             wx.redirectTo({
-            //                   url: '/pages/test/test',
-            //             })
-            //       //     wx.openSetting({
-            //       //       success: (res) => {
-            //       //         if (res.authSetting['scope.userInfo']) {
-            //       //           wx.getUserInfo({
-            //       //             success: function (userResult) {
-            //       //               callback(null, {
-            //       //                 code: loginResult.code,
-            //       //                 encryptedData: userResult.encryptedData,
-            //       //                 iv: userResult.iv,
-            //       //                 userInfo: userResult.userInfo,
-            //       //               });
-            //       //             },
-            //       //           })
-            //       //         }
-            //       //       }
-            //       //     })
-            //         }
-            //       })
-            //     },
-                //源码：
-                fail: function (userError) {
-                    // var error = new LoginError(constants.ERR_WX_GET_USER_INFO, '获取微信用户信息失败，请检查网络状态');
-                    // error.detail = userError;
-                    // callback(error, null);
-
-                    wx.redirectTo({
-                          url: '/pages/test/test?error=1',
-                    })
-                },
-            });
+                    // 可以将 res 发送给后台解码出 unionId
+                    // this.globalData.userInfo = res.userInfo
+                    // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+                    // 所以此处加入 callback 以防止这种情况
+                    // if (this.userInfoReadyCallback) {
+                    //  this.userInfoReadyCallback(res)
+                    // }
+                  },
+                  fail: function (userError) {
+                    var error = new LoginError(constants.ERR_WX_GET_USER_INFO, '获取微信用户信息失败，请检查网络状态');
+                    error.detail = userError;
+                    callback(error, null); 
+                  },
+                });             
+              }
+            }
+          })    
         },
-
         fail: function (loginError) {
-            var error = new LoginError(constants.ERR_WX_LOGIN_FAILED, '微信登录失败，请检查网络状态');
-            error.detail = loginError;
-            callback(error, null);
+          var error = new LoginError(constants.ERR_WX_LOGIN_FAILED, '微信登录失败，请检查网络状态');
+          error.detail = loginError;
+          callback(error, null);
         },
     });
 };
@@ -119,7 +95,7 @@ var login = function login(options) {
             options.fail(wxLoginError);
             return;
         }
-      console.log("wxLoginResult==>>", wxLoginResult)
+        console.log("wxLoginResult==>>", wxLoginResult)
         var userInfo = wxLoginResult.userInfo;
 
         // 构造请求头，包含 code、encryptedData 和 iv

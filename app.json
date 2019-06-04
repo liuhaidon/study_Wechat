@@ -1,11 +1,13 @@
 {
   "pages": [
     "pages/login/login",
+    "pages/login/register",
     "pages/index/index",
     "pages/logs/logs",
     "pages/index/next",
     "pages/test/test",
-    "pages/media/picture"
+    "pages/media/picture",
+    "pages/mine/mine"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -34,12 +36,19 @@
         "selectedIconPath": "imgs/nsg_click.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/mine/mine",
         "text": "我的",
         "iconPath": "imgs/nsg.png",
         "selectedIconPath": "imgs/nsg_click.png"
       }
     ]
   },
+
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false, 
+  "requiredBackgroundModes": ["audio"],
   "sitemapLocation": "sitemap.json"
 }

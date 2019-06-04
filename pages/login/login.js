@@ -1,6 +1,7 @@
 var qcloud = require('../../vendor/wafer2-client-sdk/index');
 var util = require('../../utils/util.js');
 const app = getApp();
+const back = wx.getBackgroundAudioManager();
 Page({
 
   /* 页面的初始数据 */
@@ -12,7 +13,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.backmusic();
   },
 
   /**
@@ -69,6 +70,24 @@ Page({
           }
         }
       }
+    })
+  },
+
+  backmusic: function () {
+    player();
+    function player() {
+      back.title = "此时此刻";
+      back.src = "http://sc1.111ttt.cn/2017/1/11/11/304112002347.mp3";
+      back.onEnded(() => {
+        player();
+      })
+    }
+  },
+
+  register: function(){
+    console.log("注册")
+    wx.redirectTo({
+      url: '../login/register',
     })
   }
 })
