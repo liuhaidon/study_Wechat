@@ -2,10 +2,37 @@
     <!-- tab -->
     <view class="tab">
         <view class="tab-nav" style='font-size:12px'>
-            <view class="content" wx:for="{{tabnav.tabitem}}" bindtap="setTab" data-tabindex="{{index}}" style="min-width:20%;max-width:20%;text-align:center;height: 80rpx;{{index>4?'border-bottom: 1rpx dotted #ddd;':''}}">{{item.text}}</view>
+            <view class="content" wx:for="{{tabnav.tabitem}}" bindtap="setTab" data-tabindex="{{index}}" style="min-width:20%;max-width:20%;text-align:center;height: 80rpx;{{index>3?'border-bottom: 1rpx dotted #ddd;':''}}">{{item.text}}</view>
             <view >
                 <view class="tab-line" style="width:{{100/tabnav.tabnum}}%;transform:translateX({{100*showtab}}%);"></view>
             </view>
         </view>
     </view>
 </scroll-view>
+
+<view class="weui-cell">
+  <view class="weui-cell__bd">
+    <view class="weui-uploader">
+      <view class="weui-uploader__hd">
+        <view class="weui-uploader__title">点击可预览选好的图片</view>
+        <view class="weui-uploader__info">{{pics.length}}/9</view>
+      </view>
+      <view class="weui-uploader__bd">
+        <view class="weui-uploader__files">
+          <block wx:for="{{pics}}" wx:for-item="image">
+            <view class="weui-uploader__file">
+              <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+            </view>
+          </block>
+        </view>
+        <!-- <-- isShow 这个是判断是否进行触发点隐藏操作 -->
+        <view class="weui-uploader__input-box {{isShow? 'true':'hideTrue'}}">
+          <view class="weui-uploader__input" bindtap="getPhoto"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- <image mode='widthFix' src="{{imgUrl}}"></image>
+<view bindtap="getPhoto">上传图片</view> -->
